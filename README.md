@@ -1,18 +1,25 @@
 # numbers.nvim
 
-Disables relative line numbers when they don't make sense, e.g. when entering
-insert mode.
+Neovim plugin that automatically disables relative line numbers when they don't make sense (e.g., when entering
+insert mode). Written exclusively in Lua.
 
-A Neovim plugin written exclusively in Lua.
+![demo](https://user-images.githubusercontent.com/56180050/177167997-652a43b1-c94a-4b73-94d6-e4b85fbd4606.gif)
 
-Inspired by [numbers.vim](https://github.com/myusuf3/numbers.vim).
+## Requirements
+
+- Neovim 0.7 or later
 
 ## Installation
 
-Run the `setup()` function from the `numbers` module, e.g:
+Use your favorite package manager and run the `setup()` function from the `numbers` module. Example with [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-lua require('numbers').setup()
+use {
+   "nkakouros-original/numbers.nvim",
+   config = function()
+      require("numbers").setup()
+   end
+}
 ```
 
 ## Configuration
@@ -20,11 +27,17 @@ lua require('numbers').setup()
 Pass a table to the `setup` function with any of the following options:
 
 ```lua
-{
-  excluded_filetypes = {
-    'nerdtree',
-    'unite',
-    -- etc
-  }
-}
+require("numbers").setup({
+   excluded_filetypes = {
+      'nerdtree',
+      'unite',
+      -- etc
+   }
+})
 ```
+
+## Acknowledgments
+
+- https://github.com/myusuf3/numbers.vim
+- https://github.com/jeffkreeftmeijer/vim-numbertoggle
+- https://github.com/sitiom/nvim-numbertoggle
