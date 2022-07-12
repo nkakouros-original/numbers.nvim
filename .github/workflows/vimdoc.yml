@@ -3,7 +3,7 @@ name: panvimdoc
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - README.md
       - doc/numbers.txt
