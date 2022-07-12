@@ -1,0 +1,28 @@
+name: panvimdoc
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - doc/numbers.txt
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Generate docs
+        uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: numbers
+          description: Disables relative line numbers when they don't make sense, e.g. when entering insert mode.
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Autogen vimdoc"
+          branch: ${{ github.head_ref }}
