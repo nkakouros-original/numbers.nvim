@@ -24,6 +24,7 @@ M.options = {
     'BufReadPost',
   },
   relative_events = {
+    'VimEnter',
     'InsertLeave',
     'WinEnter',
     'FocusGained',
