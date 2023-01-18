@@ -22,6 +22,8 @@ M.options = {
       "InsertEnter",
       "CmdlineEnter",
       "WinLeave",
+      "BufNewFile",
+      "BufReadPost",
    },
    relative_events = {
       "BufEnter",
