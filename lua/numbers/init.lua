@@ -2,7 +2,7 @@ local function autocmd(events, command)
   vim.api.nvim_create_autocmd(events, {group='NumbersAutocmds', command=command})
 end
 
-M = {}
+local M = {}
 
 M.options = {
   excluded_filetypes = {
