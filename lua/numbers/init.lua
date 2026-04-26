@@ -40,6 +40,7 @@ M.options = {
     "InsertEnter",
     "WinLeave",
     "FocusLost",
+    "CmdlineEnter",
   },
   relative_events = {
     "VimEnter",
@@ -49,6 +50,7 @@ M.options = {
     "BufEnter",
     "BufNewFile",
     "BufReadPost",
+    "CmdlineLeave",
   },
 }
 
