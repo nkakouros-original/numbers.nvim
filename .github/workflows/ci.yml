@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install -y luarocks && sudo luarocks install luacheck
       - name: Check (PR)
         if: github.event_name == 'pull_request'
-        run: hk run pre-commit --pr
+        run: hk run check --pr
       - name: Check (all files)
         if: github.event_name == 'push'
-        run: hk run pre-commit --all
+        run: hk run check --all
