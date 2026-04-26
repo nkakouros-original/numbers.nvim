@@ -1,2 +1,4 @@
 [tools]
 hk = "latest"
+pkl = "latest"
+stylua = "latest"
