@@ -1,0 +1,70 @@
+*numbers.txt*  Smart line numbers for Neovim
+
+==============================================================================
+INTRODUCTION                                                    *numbers.nvim*
+
+numbers.nvim automatically switches between relative and absolute line numbers
+depending on context. Relative numbers are active in normal mode; absolute
+numbers appear in insert mode, unfocused windows, and special buffers (file
+trees, terminals, help pages, etc).
+
+Inspired by numbers.vim: https://github.com/myusuf3/numbers.vim
+
+==============================================================================
+SETUP                                                     *numbers.nvim-setup*
+
+Call `setup()` from your config: >lua
+
+    require("numbers").setup()
+<
+
+==============================================================================
+CONFIGURATION                                            *numbers.nvim-config*
+
+Pass a table to `setup()` to override defaults: >lua
+
+    require("numbers").setup({
+      excluded_filetypes = { "myfiletype" },
+      excluded_buftypes  = { "mybuftype" },
+    })
+<
+
+Note: passing either option *replaces* the defaults, not merges with them.
+
+                                              *numbers.nvim-excluded_filetypes*
+excluded_filetypes ~
+    List of filetypes for which line numbers are disabled entirely.
+
+    Default: >
+        NvimTree, neo-tree, TelescopePrompt, lazy, mason, lspinfo,
+        checkhealth, help, qf, man, alpha, dashboard, Outline, aerial,
+        Trouble, fzf, oil, toggleterm,
+        unite, tagbar, startify, gundo, vimshell, w3m, nerdtree, Mundo,
+        MundoDiff
+<
+
+                                               *numbers.nvim-excluded_buftypes*
+excluded_buftypes ~
+    List of buffer types for which line numbers are disabled entirely.
+    Useful for terminals and scratch buffers that don't have a unique filetype.
+
+    Default: >
+        terminal, nofile, prompt, quickfix
+<
+
+==============================================================================
+EVENTS                                                   *numbers.nvim-events*
+
+Relative numbers are enabled on: ~
+    VimEnter, InsertLeave, WinEnter, FocusGained, BufEnter, BufNewFile,
+    BufReadPost
+
+Absolute numbers are shown on: ~
+    InsertEnter, WinLeave, FocusLost
+
+==============================================================================
+LICENSE                                                 *numbers.nvim-license*
+
+MIT. See LICENSE in the plugin root.
+
+vim:tw=78:ts=8:ft=help:norl:
