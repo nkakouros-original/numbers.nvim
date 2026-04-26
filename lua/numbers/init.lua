@@ -79,6 +79,9 @@ M.setup = function(options)
     end
   end
 
+  vim.opt.number = true
+  vim.opt.relativenumber = true
+
   vim.api.nvim_create_augroup("NumbersAutocmds", { clear = true })
 
   vim.api.nvim_create_autocmd(M.options.norelative_events, {
