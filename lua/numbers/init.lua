@@ -94,6 +94,8 @@ M.setup = function(options)
       M.set_numbering(true)
     end,
   })
+
+  M.set_numbering(true)
 end
 
 return M
