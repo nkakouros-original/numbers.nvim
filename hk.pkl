@@ -1,20 +1,30 @@
 amends "package://github.com/jdx/hk/releases/download/v1.44.1/hk@1.44.1#/Config.pkl"
 
+local luaSteps = new Mapping<String, Step> {
+  ["stylua"] {
+    glob = "*.lua"
+    check = "stylua --check {{files}}"
+    fix = "stylua {{files}}"
+  }
+  ["luacheck"] {
+    glob = "*.lua"
+    check = "luacheck {{files}}"
+  }
+}
+
 hooks {
   ["pre-commit"] {
     fix = true
     stash = "git"
     stage = true
-    steps = new Mapping<String, Step> {
-      ["stylua"] {
-        glob = "*.lua"
-        check = "stylua --check {{files}}"
-        fix = "stylua {{files}}"
-      }
-      ["luacheck"] {
-        glob = "*.lua"
-        check = "luacheck {{files}}"
-      }
-    }
+    steps = luaSteps
+  }
+  ["check"] {
+    steps = luaSteps
+  }
+  ["fix"] {
+    fix = true
+    stash = "none"
+    steps = luaSteps
   }
 }
