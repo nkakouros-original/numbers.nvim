@@ -58,7 +58,7 @@ M.set_numbering = function(relative)
     vim.opt_local.relativenumber = false
     return
   end
-  vim.opt_local.number = true
+  vim.opt_local.number = vim.go.number
   vim.opt_local.relativenumber = relative
 end
 
@@ -78,9 +78,6 @@ M.setup = function(options)
       M.options.excluded_buftypes[v] = true
     end
   end
-
-  vim.opt.number = true
-  vim.opt.relativenumber = true
 
   vim.api.nvim_create_augroup("NumbersAutocmds", { clear = true })
 
