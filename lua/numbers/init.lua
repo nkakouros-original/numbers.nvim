@@ -62,6 +62,8 @@ M.set_numbering = function(relative)
   end
   vim.opt_local.number = vim.go.number
   vim.opt_local.relativenumber = relative
+
+  vim.cmd("redraw")
 end
 
 M.setup = function(options)
